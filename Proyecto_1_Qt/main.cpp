@@ -1,88 +1,78 @@
 #include <QCoreApplication>
-#include "listaCircular.h"
+#include "quicksort.h"
 #include<bits/stdc++.h>
-#include <string.h>
+#include <string>
+#include "carrito.h"
+
 template<typename T>
-void tri_rapide (ListaCircular<T> *pLista, int taille, int inicio);
+void tri_rapide (ListaDobleCircular<T> *pLista, int taille, int inicio);
 
 int main(int argc, char *argv[])
 {
 
-    char *hola12,hola[]="aaa";
-    hola12=hola;
-    char *hola144,hola1[]="bbb";
-    hola144=hola1;
-    char *hola99,hola7[]="ddd";
-    hola99=hola7;
-    char *hola2,hola3[]="ccc";
-    hola2=hola3;
 
-    ListaCircular<char>lista (hola144);
-    lista.agregarSiguiente(hola99);
-    lista.agregarInicio(hola12);
-    lista.agregarFinal(hola2);
+
+    int *hola12,hola=0;
+    hola12=&hola;
+    int *hola144,hola1=7;
+    hola144=&hola1;
+    int *hola99,hola7=55;
+    hola99=&hola7;
+    int *hola2,hola3=1;
+    hola2=&hola3;
+    int *hola8,hola0=15;
+    hola8=&hola0;
+    int *hola5,hola55=1;
+    hola5=&hola55;
+    QuickSort<int>quicksort;
+    Carrito carrito=Carrito(2,1,9);
+    ListaDobleCircular<int> lista (hola2);
+    lista.agregarSiguiente(hola12);
+    lista.agregarSiguiente(hola8);
+    lista.agregarInicio(hola144);
+    lista.agregarInicio(hola144);
+    lista.agregarInicio(hola144);
+    lista.agregarInicio(hola99);
+    lista.agregarFinal(hola5);
     lista.irNodoInicio();
-    while(true){
-
-       std::cout <<*(lista.getDatoNodoActual())<<std::endl;
-
-        if (!lista.verSiguiente()){
-            break;
-        }
-        lista.avanzarEnLista();
-    }
-
-
-
-    tri_rapide<char> (&lista, 4, 0);
     std::cout <<*(lista.GetDatoPosicion(0))<<std::endl;
     std::cout <<*(lista.GetDatoPosicion(1))<<std::endl;
     std::cout <<*(lista.GetDatoPosicion(2))<<std::endl;
     std::cout <<*(lista.GetDatoPosicion(3))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(4))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(5))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(6))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(7))<<std::endl;
+    lista.irNodoInicio();
+    quicksort.tri_rapide(&lista, 8, 0);
+
+    std::cout <<*(lista.GetDatoPosicion(0))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(1))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(2))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(3))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(4))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(5))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(6))<<std::endl;
+    std::cout <<*(lista.GetDatoPosicion(7))<<std::endl;
+    lista.irNodoInicio();
+//pLista->intercarmbiarNodosmur,courant);
 
     while(true){
-        lista.irNodoInicio();
+
         lista.eliminarSiguiente();
         if (!lista.verSiguiente()){
             break;
         }
     }
+    std::string hola1234567;
+    hola1234567="A";
+    std::string hola123456;
+    hola123456="AA";
+    std::cout<<hola1234567.compare(hola123456)<<std::endl;
+    QCoreApplication a(argc, argv);
 
-   return 0;
+    return a.exec();
 }
 
 
-template<typename T>
-void tri_rapide (ListaCircular<T>*pLista, int taille, int inicio) {
-    int mur,courant;
-    T  *pivot,tmp=0;
-    if (taille < 2) return;
-    pivot = pLista->GetDatoPosicion(taille-1);
-    mur  = courant = inicio;
-    while (courant<taille) {
-        if (*(pLista->GetDatoPosicion(courant)) <= *pivot) {
-
-            if (mur != courant) {
-                std::cout <<"Nuevo Intercambio"<<std::endl;
-                std::cout <<*(pLista->GetDatoPosicion(mur))<<std::endl;
-                std::cout <<*(pLista->GetDatoPosicion(courant))<<std::endl;
-                tmp=*(pLista->GetDatoPosicion(courant));
-                pLista->SetDatoPosicion(pLista->GetDatoPosicion(mur),courant);
-                pLista->SetDatoPosicion(&tmp,mur);
-                std::cout <<"Despues de Intercambio"<<std::endl;
-                std::cout <<*(pLista->GetDatoPosicion(mur))<<std::endl;
-                std::cout <<*(pLista->GetDatoPosicion(courant))<<std::endl;
-
-            }
-            mur ++;
-        }
-        courant ++;
-
-    }
-
-    tri_rapide<T>(pLista, mur - 1,inicio);
-    tri_rapide<T>(pLista, taille - mur + 1,inicio +mur-1);
-
-
-}
 
