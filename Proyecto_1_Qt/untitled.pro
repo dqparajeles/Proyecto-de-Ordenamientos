@@ -16,13 +16,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     orden.cpp \
-    orden.cpp
+    orden.cpp \
+    cadenaDePalabra.cpp \
+    lista.cpp \
+    main.cpp \
+    orden.cpp \
+    pruebaString.cpp
 
 
 HEADERS += \
     orden.h \
     listaDobleCircular.h \
     listaDoble.h \
-    listaCircular.h \
-    pila.h
+    pila.h \
+    cadenaDePalabra.h \
+    listaDoble.h \
+    listaDobleCircular.h \
+    orden.h \
+    pila.h \
+    quicksort.h \
+    listaSimple.h
 

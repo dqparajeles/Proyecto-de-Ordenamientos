@@ -12,6 +12,5 @@ class cadenaDePalabra{
     char* getPalabra();
     void obtenerPalabraAleatorio();
     int comparar(cadenaDePalabra *palabraEntrada);
-    void intercambiar(cadenaDePalabra *palabraEntrada);
 };
 #endif
