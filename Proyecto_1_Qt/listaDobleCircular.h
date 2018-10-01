@@ -163,7 +163,7 @@ void ListaDobleCircular<T>::agregarFinal(T *dato){
 }
 template <class T>
 void ListaDobleCircular<T>::avanzarEnLista(){
-    if (!(nodoActual==nodoFinal && nodoActual==nodoInicio))
+    if (!(nodoActual==nodoFinal))
        nodoActual=nodoActual->getSiguiente();
         return;
 }
